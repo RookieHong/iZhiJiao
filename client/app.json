@@ -1,6 +1,9 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/frames/look-around",
+    "pages/frames/myProfile",
+    "pages/frames/myProjects",
     "pages/addCgi/addCgi"
   ],
   "window":{
@@ -9,5 +12,31 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "Wafer Quick Start",
     "navigationBarTextStyle":"black"
-  }
+  },
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#000000",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+        {
+            "pagePath": "pages/index/index",
+            "iconPath": "images/homepage.png",
+            "selectedIconPath": "images/homepage_fill.png",
+            "text": "广场"
+        },
+        {
+            "pagePath": "pages/frames/myProjects",
+            "iconPath": "images/activity.png",
+            "selectedIconPath": "images/activity_fill.png",
+            "text": "我的项目"
+        },
+        {
+            "pagePath": "pages/frames/myProfile",
+            "iconPath": "images/mine.png",
+            "selectedIconPath": "images/mine_fill.png",
+            "text": "我的主页"
+        }
+    ]
+}
 }
