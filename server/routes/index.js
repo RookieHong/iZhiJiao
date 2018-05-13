@@ -5,6 +5,8 @@ const router = require('koa-router')({
     prefix: '/weapp'
 })
 const controllers = require('../controllers')
+const addUser = require('../tools/addUser');
+const https = require('https');
 
 // 从 sdk 中取出中间件
 // 这里展示如何使用 Koa 中间件完成登录态的颁发与验证
@@ -33,5 +35,28 @@ router.get('/message', controllers.message.get)
 router.post('/message', controllers.message.post)
 
 router.get('/demo', controllers.demo)
+
+/*var fetchID = function(code) {
+    return new Promise((resolve, reject) => {
+        https.get('https://api.weixin.qq.com/sns/jscode2session?appid=wx542ddffc5268f0be&secret=0bf54d6cec5a5055896ed03226190b44&js_code=' + code + '&grant_type=authorization_code', (res) => {
+                resolve(res);
+            }
+        )
+    })
+}*/
+
+router.get('/verify/:code', async(ctx) => {
+    var code = ctx.params.code
+    var res = await function(code) {
+        return new Promise((resolve, reject) => {
+            https.get('https://api.weixin.qq.com/sns/jscode2session?appid=wx542ddffc5268f0be&secret=0bf54d6cec5a5055896ed03226190b44&js_code=' + code + '&grant_type=authorization_code', (res) => {
+                console.log(res);
+                resolve(res);
+            }
+            )
+        })
+    }
+    ctx.state.data = res;
+})
 
 module.exports = router

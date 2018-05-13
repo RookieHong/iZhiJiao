@@ -2,6 +2,7 @@
   "pages":[
     "pages/index/index",
     "pages/frames/look-around",
+    "pages/frames/verify",
     "pages/frames/myProfile",
     "pages/frames/myProjects",
     "pages/addCgi/addCgi"

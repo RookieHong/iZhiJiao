@@ -17,5 +17,13 @@ Page({
           fail: function(res) {},
           complete: function(res) {},
       })
+  },
+  openVerify: () => {
+      wx.navigateTo({
+          url: '../frames/verify',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+      })
   }
 })

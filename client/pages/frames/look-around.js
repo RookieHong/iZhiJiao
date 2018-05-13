@@ -1,7 +1,11 @@
 Page({
     data: {
         inputShowed : false,
-        inputVal : ''
+        inputVal : '',
+        projects: [],
+        places: [],
+        teams: [],
+        sources: []
     },
     showInput : function() {
         this.setData({
@@ -23,5 +27,8 @@ Page({
         this.setData({
             inputVal: e.detail.value
         });
+    },
+    onLoad: function() {
+        //加载projects, places, teams, sources
     }
 })

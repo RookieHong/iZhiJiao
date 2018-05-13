@@ -4,6 +4,7 @@
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
 var host = 'https://brykgvnp.qcloud.la';
+var appSecret = '0bf54d6cec5a5055896ed03226190b44';
 
 var config = {
 
@@ -21,7 +22,11 @@ var config = {
         tunnelUrl: `${host}/weapp/tunnel`,
 
         // 上传图片接口
-        uploadUrl: `${host}/weapp/upload`
+        uploadUrl: `${host}/weapp/upload`,
+
+        demoUrl: `${host}/weapp/demo`,
+
+        verifyUrl: `${host}/weapp/verify/`
     }
 };
 

@@ -10,7 +10,7 @@
 <view class='main'>
     <view class='page_title'>~~~~~~~~~</view>
     <button class="weui-btn buttons" type="primary" bindtap="openLookAround">我就看看</button>
-    <button class="weui-btn buttons" type="primary">实名认证</button>
+    <button class="weui-btn buttons" type="primary" bindtap="openVerify">实名认证</button>
 </view>
 
 <view class="flex weui-footer_fixed-bottom footers">
