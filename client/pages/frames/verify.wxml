@@ -1,2 +1,40 @@
+<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">姓名</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入姓名" bindinput="nameInput"/>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">身份证号</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入身份证号" bindinput="idInput"/>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd" style="width: 105px">
+            <picker bindchange="bindContactTypeChanges" value="{{contactTypeIndex}}" range="{{contactTypes}}">
+                <view class="weui-select">{{contactTypes[contactTypeIndex]}}</view>
+            </picker>
+        </view>
+        <view class="weui-cell__bd weui-cell__bd_in-select-before">
+            <input class="weui-input" placeholder="请输入号码" bindinput="numberInput"/>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+            <view class="weui-label">地区</view>
+        </view>
+        <view class="weui-cell__bd">
+            <picker bindchange="bindRegionChanges" value="{{regionIndex}}" range="{{regions}}">
+                <view class="weui-select weui-select_in-select-after">{{regions[regionIndex]}}</view>
+            </picker>
+        </view>
+    </view>
+</view>
+
 <button class="weui-btn buttons" type="primary" bindtap="verify">实名认证</button>
-<button class="weui-btn buttons" type="primary" bindtap="login">登录</button>
