@@ -5,12 +5,12 @@ Page({
     data : {
         name: "",
         id: "",
-        number: "",
+        contact: "",
 
         contactTypes: ["微信", "手机"],
         contactTypeIndex: 0,
 
-        regions: ["海口", "厦门","重庆"],
+        regions: ["海口", "厦门", "重庆"],
         regionIndex: 0
 
     },
@@ -26,7 +26,7 @@ Page({
     },
     numberInput: function(e) {
         this.setData({
-            number: e.detail.value
+            contact: e.detail.value
         })
     },
     bindContactTypeChanges: function(e) {
@@ -40,27 +40,43 @@ Page({
         })
     },
     verify : function() {
-        try {
-            wx.request({
-                url: config.service.verifyUrl,
-                method: 'POST',
-                data: {
-                    name: name,
-                    id: id,
-                    number: number,
-                    contactType: contactTypes[contactTypeIndex],
-                    region: regions[regionIndeex]
-                },
-                success: (res) => {
-                    console.log(res);
+        var name = this.data.name
+        var id = this.data.id
+        var contact = this.data.contact
+        var contactType = this.data.contactTypes[this.data.contactTypeIndex]
+        var region = this.data.regions[this.data.regionIndex]
+        wx.login({
+            success: function(res) {
+                if(res.code){
+                    try{
+                        wx.request({
+                            url: config.service.verifyUrl,
+                            method: 'POST',
+                            data: {
+                                name: name,
+                                id: id,
+                                contact: contact,
+                                contactType: contactType,
+                                region: region,
+                                code: res.code
+                            },
+                            success: (res) => {
+                                console.log(res);
+                            }                        
+                        })
+                    }
+                    catch (err) {
+                        console.log(err)
+                        wx.showToast({
+                            icon: "none",
+                            title: '请先填写信息！'
+                        })
+                    }
                 }
-            })
-        }
-        catch (err) {
-            wx.showToast({
-                icon: "none",
-                title: '请先填写信息！',
-            })
-        }
+                else {
+                    console.log('登录失败！')
+                }
+            }
+        })
     }
 })

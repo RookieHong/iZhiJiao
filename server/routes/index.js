@@ -35,8 +35,6 @@ router.post('/message', controllers.message.post)
 
 router.get('/demo', controllers.demo)
 
-router.post('/verify/:code', async(ctx) => {
-    
-})
+router.post('/verify', controllers.addUser)
 
 module.exports = router
