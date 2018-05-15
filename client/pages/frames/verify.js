@@ -78,5 +78,19 @@ Page({
                 }
             }
         })
+    },
+    test: function() {
+        wx.login({
+            success: function(res) {
+                if(res.code) {
+                    wx.request({
+                        url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx542ddffc5268f0be&secret=0bf54d6cec5a5055896ed03226190b44&js_code=' + res.code + '&grant_type=authorization_code',
+                        success: (res) => {
+                            console.log(res.data.openid)
+                        }
+                    })
+                }
+            }
+        })
     }
 })
