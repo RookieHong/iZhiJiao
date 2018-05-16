@@ -1,4 +1,4 @@
-<view class="weui-cells weui-cells_after-title">
+<view wx:if="{{!verified}}" class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
             <view class="weui-label">姓名</view>
@@ -35,8 +35,15 @@
             </picker>
         </view>
     </view>
+
+    <button class="weui-btn buttons" type="primary" bindtap="verify">实名认证</button>
+    <button class="weui-btn buttons" type="primary" bindtap="test">test</button>
 </view>
 
-<button class="weui-btn buttons" type="primary" bindtap="verify">实名认证</button>
-
-<button class="weui-btn buttons" type="primary" bindtap="test">test</button>
+<view wx:if="{{verified}}" class="icon-box">
+    <icon type="success" size="93"></icon>
+    <view class="icon-box__ctn">
+        <view class="icon-box__title">您已实名认证</view>
+        <view class="icon-box__desc">可以进行其他操作</view>
+    </view>
+</view>

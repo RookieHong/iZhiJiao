@@ -1,4 +1,4 @@
-module.exports = ctx => {
+module.exports = async ctx => {
     const fs = require('fs')
     const path = require('path')
     const { mysql: config } = require('../config')
@@ -19,7 +19,42 @@ module.exports = ctx => {
 
     var getUrl = 'https://api.weixin.qq.com/sns/jscode2session?appid=wx542ddffc5268f0be&secret=0bf54d6cec5a5055896ed03226190b44&js_code=' + ctx.request.body.code + '&grant_type=authorization_code'
 
-    https.get(getUrl, function(res) {
+    await new Promise(function(resolve, reject) {
+        https.get(getUrl, function(res) {
+            resolve(res)
+        })
+    }).then(function(res) {
+        new Promise(function(resolve, reject) {
+            res.on('data', function(data) {
+                resolve(data)
+            })
+        })
+    }).then(function(data) {
+        var obj = eval('(' + data + ')')
+        var openid = obj.openid
+        DB.insert({
+            name: ctx.request.body.name || '',
+            id: ctx.request.body.id || '',
+            region: ctx.request.body.region || '',
+            contact: ctx.request.body.contact || '',
+            contactType: ctx.request.body.contactType || '',
+            openid: openid || 'noReturn'
+        }).into('user').then(res => {
+            ctx.state.data = {
+                msg: 'user info inserted successfully!',
+                code: 1,
+                openid: openid
+            }
+        }, err => {
+            ctx.state.data = {
+                msg: 'user info insert failed!',
+                code : 0
+            }
+            throw new Error(err)
+        })
+    })
+
+    /*https.get(getUrl, function(res) {
         res.on('data', function(data) {
             var obj = eval('(' + data + ')')
             var openid = obj.openid
@@ -38,6 +73,6 @@ module.exports = ctx => {
         })
     }).on('error',(e) => {
         console.log(e)
-    })
+    })*/
 
 }

@@ -3,6 +3,8 @@ var utils = require('../../utils/util')
 
 Page({
     data : {
+        verified: false,
+
         name: "",
         id: "",
         contact: "",
@@ -45,10 +47,16 @@ Page({
         var contact = this.data.contact
         var contactType = this.data.contactTypes[this.data.contactTypeIndex]
         var region = this.data.regions[this.data.regionIndex]
-        wx.login({
-            success: function(res) {
-                if(res.code){
-                    try{
+        new Promise(function(resolve, reject) {
+            wx.login({
+                success: function(res) {
+                    resolve(res)
+                }
+            })
+        }).then(function(res) {
+            new Promise(function(resolve, reject) {
+                if (res.code) {
+                    try {
                         wx.request({
                             url: config.service.verifyUrl,
                             method: 'POST',
@@ -60,9 +68,32 @@ Page({
                                 region: region,
                                 code: res.code
                             },
-                            success: (res) => {
-                                console.log(res);
-                            }                        
+                            success: function(res) {
+                                console.log(res)
+                                if (res.data.code == -1) {
+                                    wx.showToast({
+                                        icon: "none",
+                                        title: res.data.error
+                                    })
+                                }
+                                else if (res.data.code == 1) {
+                                    wx.showToast({
+                                        icon: "none",
+                                        title: res.data.msg
+                                    })
+                                    wx.setStorage({
+                                        key: "openid",
+                                        data: res.data.openid
+                                    })
+                                    wx.navigateBack()
+                                }
+                                else if (res.data.code == 0) {
+                                    wx.showToast({
+                                        icon: "none",
+                                        title: res.data.msg
+                                    })
+                                }
+                            }
                         })
                     }
                     catch (err) {
@@ -76,7 +107,7 @@ Page({
                 else {
                     console.log('登录失败！')
                 }
-            }
+            })
         })
     },
     test: function() {
@@ -90,6 +121,16 @@ Page({
                         }
                     })
                 }
+            }
+        })
+    },
+    onLoad: function() {
+        wx.getStorage({
+            key: 'openid',
+            success: function(res) {
+                this.setData({
+                    verified: true
+                })
             }
         })
     }
