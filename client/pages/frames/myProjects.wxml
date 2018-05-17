@@ -1,4 +1,4 @@
-<view class="weui-tab">
+<view wx:if="{{verified}}" class="weui-tab">
     <view class="weui-navbar">
         <block wx:for="{{tabs}}" wx:key="*this">
             <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
@@ -47,5 +47,13 @@
                 </navigator>
             </view>
         </view>
+    </view>
+</view>
+
+<view wx:if="{{!verified}}" class="icon-box center">
+    <icon type="warn" size="93" color="#FFBE00"></icon>
+    <view class="icon-box__ctn">
+        <view class="icon-box__title">请先进行认证</view>
+        <view class="icon-box__desc">然后才能查看我的项目哦</view>
     </view>
 </view>

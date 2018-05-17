@@ -1,9 +1,10 @@
 var config = require('../../config')
 var utils = require('../../utils/util')
+var app = getApp()
 
 Page({
     data : {
-        verified: false,
+        verified: app.verified,
 
         name: "",
         id: "",
@@ -81,9 +82,9 @@ Page({
                                         icon: "none",
                                         title: res.data.msg
                                     })
-                                    wx.setStorage({
-                                        key: "openid",
-                                        data: res.data.openid
+                                    app.verified = true
+                                    this.setData({
+                                        verified: app.verified
                                     })
                                     wx.navigateBack()
                                 }
