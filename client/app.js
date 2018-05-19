@@ -27,7 +27,6 @@ App({
                     wx.request({
                         url: config.service.checkVerifiedUrl + data.openid,
                         success: function (res) {
-                            console.log(res)
                             if(res.data.data.length != 0) {
                                 that.verified = true
                             }
@@ -43,6 +42,24 @@ App({
                 }
             })
         })
+
+        wx.getSetting({
+            success: function (res) {
+                if (res.authSetting['scope.userInfo']) {
+                    // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+                    wx.getUserInfo({
+                        success: function (res) {
+                            console.log(res.userInfo)
+                            that.userInfo = res.userInfo
+                        },
+                        fail: function () {
+                            console.log('获取用户信息失败！')
+                        }
+                    })
+                }
+            }
+        })
     },
-    verified: false
+    verified: false,
+    userInfo: {}
 })

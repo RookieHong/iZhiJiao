@@ -135,14 +135,9 @@ Page({
             }
         })
     },
-    onLoad: function() {
-        wx.getStorage({
-            key: 'openid',
-            success: function(res) {
-                this.setData({
-                    verified: true
-                })
-            }
+    onShow: function() {
+        this.setData({
+            verified: app.verified
         })
     }
 })
