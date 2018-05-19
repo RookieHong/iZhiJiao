@@ -48,6 +48,14 @@ Page({
         var contact = this.data.contact
         var contactType = this.data.contactTypes[this.data.contactTypeIndex]
         var region = this.data.regions[this.data.regionIndex]
+        var that = this
+        if(name == '' || id == '' || contact == ''){
+            wx.showToast({
+                icon: 'none',
+                title: '请将信息填写完整！'
+            })
+            return
+        }
         new Promise(function(resolve, reject) {
             wx.login({
                 success: function(res) {
@@ -55,58 +63,60 @@ Page({
                 }
             })
         }).then(function(res) {
-            new Promise(function(resolve, reject) {
-                if (res.code) {
-                    try {
-                        wx.request({
-                            url: config.service.verifyUrl,
-                            method: 'POST',
-                            data: {
-                                name: name,
-                                id: id,
-                                contact: contact,
-                                contactType: contactType,
-                                region: region,
-                                code: res.code
-                            },
-                            success: function(res) {
-                                console.log(res)
-                                if (res.data.code == -1) {
-                                    wx.showToast({
-                                        icon: "none",
-                                        title: res.data.error
-                                    })
-                                }
-                                else if (res.data.code == 1) {
-                                    wx.showToast({
-                                        icon: "none",
-                                        title: res.data.msg
-                                    })
-                                    app.verified = true
-                                    this.setData({
-                                        verified: app.verified
-                                    })
-                                    wx.navigateBack()
-                                }
-                                else if (res.data.code == 0) {
-                                    wx.showToast({
-                                        icon: "none",
-                                        title: res.data.msg
-                                    })
-                                }
+            return new Promise(function(resolve, reject) {
+                wx.request({
+                    url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx542ddffc5268f0be&secret=0bf54d6cec5a5055896ed03226190b44&js_code=' + res.code + '&grant_type=authorization_code',
+                    success: function(result) {
+                        resolve(result.data)
+                    }
+                })
+            })
+        }).then(function(data) {
+            return new Promise(function(resolve, reject) {
+                try {
+                    wx.request({
+                        url: config.service.verifyUrl,
+                        method: 'POST',
+                        header: {
+                            "content-type": "application/x-www-form-urlencoded"
+                        },
+                        data: {
+                            name: name,
+                            id: id,
+                            contact: contact,
+                            contactType: contactType,
+                            region: region,
+                            openid: data.openid
+                        },
+                        success: function(res) {
+                            console.log(res)
+                            if (res.data.code == -1) {
+                                wx.showToast({
+                                    icon: "none",
+                                    title: res.data.error
+                                })
                             }
-                        })
-                    }
-                    catch (err) {
-                        console.log(err)
-                        wx.showToast({
-                            icon: "none",
-                            title: '请先填写信息！'
-                        })
-                    }
+                            else if (res.data.code == 0) {
+                                wx.showToast({
+                                    icon: "none",
+                                    title: res.data.data.msg,
+                                    success: function() {
+                                        app.verified = true
+                                        that.setData({
+                                            verified: app.verified
+                                        })
+                                    }
+                                })
+                            }
+                        }
+                    })
                 }
-                else {
-                    console.log('登录失败！')
+                catch (err) {
+                    console.log(err)
+                    wx.showToast({
+                        icon: "none",
+                        title: '出错！'
+                    })
                 }
             })
         })

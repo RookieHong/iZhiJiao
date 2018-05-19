@@ -40,7 +40,7 @@
     <button class="weui-btn buttons" type="primary" bindtap="test">test</button>
 </view>
 
-<view wx:if="{{verified}}" class="icon-box">
+<view wx:if="{{verified}}" class="icon-box center">
     <icon type="success" size="93"></icon>
     <view class="icon-box__ctn">
         <view class="icon-box__title">您已实名认证</view>

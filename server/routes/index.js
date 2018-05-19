@@ -35,6 +35,10 @@ router.post('/message', controllers.message.post)
 
 router.get('/demo', controllers.demo)
 
+//POST 用来处理实名认证传送过来的数据
 router.post('/verify', controllers.addUser)
+
+//GET 用来处理检验实名认证
+router.get('/checkVerified/:openid', controllers.checkVerified)
 
 module.exports = router

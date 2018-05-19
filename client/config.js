@@ -4,6 +4,7 @@
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
 var host = 'https://brykgvnp.qcloud.la';
+//var host = 'https://257714668.izhijiao.xyz';
 var appSecret = '0bf54d6cec5a5055896ed03226190b44';
 
 var config = {
@@ -26,7 +27,9 @@ var config = {
 
         demoUrl: `${host}/weapp/demo`,
 
-        verifyUrl: `${host}/weapp/verify/`
+        verifyUrl: `${host}/weapp/verify/`,
+
+        checkVerifiedUrl: `${host}/weapp/checkVerified/`
     }
 };
 
