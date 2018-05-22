@@ -16,53 +16,53 @@
 </view>
 
 <view class="weui-panel__hd">公益项目</view>
-<view class="weui-panel__bd" wx:for="{{projects}}" wx:for-index="idx" wx:for-item="item" wx:key="url">
-    <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+<view class="weui-panel__bd" wx:for="{{projects}}" wx:for-index="idx" wx:for-item="item" wx:key="title">
+    <view bindtap="openProject" data-title="{{item.title}}" data-website="{{item.website}}" data-phone="{{item.phone}}" data-goal="{{item.goal}}" data-profile="{{item.profile}}" data-content="{{item.content}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view wx:if="{{item.img}}" class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="{{item.img}}" />
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">{{item.title}}</view>
             <view class="weui-media-box__desc">{{item.content}}</view>
         </view>
-    </navigator>
+    </view>
  </view>
 
 <view class="weui-panel__hd">支教地情况</view>
-<view class="weui-panel__bd" wx:for="{{places}}" wx:for-index="idx" wx:for-item="item" wx:key="url">
-    <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+<view class="weui-panel__bd" wx:for="{{places}}" wx:for-index="idx" wx:for-item="item" wx:key="title">
+    <view bindtap="openPlace" data-title="{{item.title}}" data-content="{{item.content}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view wx:if="{{item.img}}" class="weui-media-box__hd weui-media-box__hd_in-appmsg" >
             <image class="weui-media-box__thumb" src="{{item.img}}" />
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">{{item.title}}</view>
             <view class="weui-media-box__desc">{{item.content}}</view>
         </view>
-    </navigator>
+    </view>
  </view>
 
  <view class="weui-panel__hd">已入驻支教队</view>
-<view class="weui-panel__bd" wx:for="{{teams}}" wx:for-index="idx" wx:for-item="item" wx:key="url">
-    <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+<view class="weui-panel__bd" wx:for="{{teams}}" wx:for-index="idx" wx:for-item="item" wx:key="title">
+    <view bindtap="openTeam" data-title="{{item.title}}" data-content="{{item.content}}" data-phone="{{item.phone}}" data-wechat="{{item.wechat}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view wx:if="{{item.img}}" class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="{{item.img}}" />
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">{{item.title}}</view>
             <view class="weui-media-box__desc">{{item.content}}</view>
         </view>
-    </navigator>
+    </view>
  </view>
 
  <view class="weui-panel__hd">资源干货</view>
-<view class="weui-panel__bd" wx:for="{{sources}}" wx:for-index="idx" wx:for-item="item" wx:key="url">
-    <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+<view class="weui-panel__bd" wx:for="{{sources}}" wx:for-index="idx" wx:for-item="item" wx:key="title">
+    <view bindtap="openSource" data-title="{{item.title}}" data-content="{{item.content}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view wx:if="{{item.img}}" class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="{{item.img}}" />
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">{{item.title}}</view>
             <view class="weui-media-box__desc">{{item.content}}</view>
         </view>
-    </navigator>
+    </view>
  </view>
