@@ -7,6 +7,11 @@ Page({
             img:"../../images/YiLuPingAn.jpg",
             title: "“益路平安”东风爱心大行动",
             content: "  为进一步推进东风社会责任“润”计划的实施，履行文化责任，积极构建文明、有序、可持续发展的中国汽车社会，东风汽车公司于6月5日正式启动“和畅东风”汽车公民文化活动，并联合中国道路交通安全协会、中国汽车文化促进会发布《中国汽车公民文明公约》。\n  为更广泛的传播《公约》精神，将理念宣导转化为爱心行动，最终触发爱心传播《公约》，东风公益基金会联合公司部分二级单位、140余家东风旗下品牌4S店，开展为期1个月的百万文明之诺——“益路平安”东风爱心大行动。鼓励爱心人士通过传播《公约》、传递文明，为因交通事故致残的儿童（首批筛选10名）赢取爱心救助基金。\n  爱心人士可以通过活动官网（www.dfm1000000.com）、东风公益基金会官方微博、微信参与《公约》转发、点赞，互动答题等形式参与爱心大行动；在4S店，客户还可参加“一份承诺 一元爱心”到店签名支持《公约》等活动。每一次转发、每一个签名，每一份承诺，都将转化为“东风公益基金会”捐出的1元爱心, 最终汇聚成100万元救助金。",
+            date:'',
+            location:'',
+            emial: '',
+            weixin: '',
+            weibo:'',
             website:"http://www.dfm1000000.com",
             phone:"东风公益",
             goal:"传播《中国汽车公民文明公约》，构建文明、有序、可持续发展的中国汽车社会。",
@@ -16,6 +21,11 @@ Page({
             img:"../../images/OneEgg.jpg",
             title:"一颗鸡蛋工程",
             content: "  了中华民族下一代身心健康的成长，中华儿慈会在全国开展《一颗鸡蛋工程》，即：集合各地企业家、爱心人士的捐赠，资助需要帮助的贫困孩子每人每天吃上一颗鸡蛋；并在贫困山区冠名捐建《一颗鸡蛋工程》绿色鸡蛋散养基地（养殖场），既扶持当地农民就近创业，缓解当前“城市病”的困局，又免费为孩子们提供长期稳定的营养补充来源。\n  1、开展“一元钱、一颗鸡蛋、一份爱心、资助一个贫困儿童；手拉手、一对一”的爱心传递、结对资助活动：社会各界都可以通过《一颗鸡蛋工程》官网http://www.yikejidan.org或中华儿慈会官网http://www.ccafc.org.cn资助你想对口资助的某个学校的中小学生（捐赠信息指向：一颗鸡蛋工程)。\   2、参与“爱满中华《一颗鸡蛋工程》365计划”，倡导每个家庭每天一元钱，每年捐赠365元资助一个贫困孩子一学年每天吃上一颗鸡蛋。\n  3、参与组织《一颗鸡蛋工程》百城慈善募捐义演大型公益推广活动。各爱心企业通过参与《一颗鸡蛋工程》百城慈善募捐音乐会的形式，为企业美誉度的提升和企业品牌的传播推广搭建平台，也为中西部贫困孩子早日吃上一颗鸡蛋募集更多的善款。\n  4、参与开展《一颗鸡蛋工程》公益营销、慈善义卖大型公益推广项目。企业可以利用网络平台或在各大超市、社区开展各种形式的公益营销、慈善义卖；也可通过自己的营销渠道开展各种“营销附捐”活动，为贫困孩子募集更多的善款，资助他们早日吃上一颗鸡蛋。",
+            date: '',
+            location: '',
+            emial: '',
+            weixin: '',
+            weibo: '',
             website: "http://www.yikejidan.org/ ",
             phone: "010-64867373",
             goal: "每天一颗蛋 强壮中国娃 让中华下一代身心健康的幸福成长",
@@ -67,7 +77,7 @@ Page({
     },
     openProject:function(e){
       wx.navigateTo({
-        url: 'project?' + 'title=' + e.currentTarget.dataset.title + '&content=' + e.currentTarget.dataset.content + '&website=' + e.currentTarget.dataset.website + '&goal=' + e.currentTarget.dataset.goal + '&phone=' + e.currentTarget.dataset.phone + '&profile=' + e.currentTarget.dataset.profile,
+        url: 'project?' + 'title=' + e.currentTarget.dataset.title + '&content=' + e.currentTarget.dataset.content + '&website=' + e.currentTarget.dataset.website + '&goal=' + e.currentTarget.dataset.goal + '&phone=' + e.currentTarget.dataset.phone + '&profile=' + e.currentTarget.dataset.profile + '&date=' + e.currentTarget.dataset.date+'&location='+e.currentTarget.dataset.location+'&email='+e.currentTarget.dataset.email+'&weibo='+e.currentTarget.dataset.weibo+'&weixin='+e.currentTarget.dataset.weixin,
       })
     },
     openPlace: function (e) {
