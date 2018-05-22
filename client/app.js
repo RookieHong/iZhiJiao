@@ -4,7 +4,19 @@ var config = require('./config')
 
 App({
     onLaunch: function () {
-        qcloud.setLoginUrl(config.service.loginUrl)
+      wx.getStorage({
+        key: 'verified',
+        success: function (res) {
+          if (res.data == "false")
+            this.verified = false;
+          else
+            this.verified = true;
+        },
+        fail:function(){
+          this.verified=false;
+        }
+      })
+        /*qcloud.setLoginUrl(config.service.loginUrl)
         var that = this
         new Promise(function (resolve, reject) {
             wx.login({
@@ -43,6 +55,7 @@ App({
                 }
             })
         })
+    },*/
     },
     verified: false,
     openid: '',

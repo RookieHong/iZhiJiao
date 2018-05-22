@@ -1,7 +1,6 @@
 var config = require('../../config')
 var utils = require('../../utils/util')
 var app = getApp()
-
 Page({
     data : {
         verified: app.verified,
@@ -56,22 +55,8 @@ Page({
             })
             return
         }
-
-        try {
-            wx.request({
-                url: config.service.verifyUrl,
-                method: 'POST',
-                header: {
-                    "content-type": "application/x-www-form-urlencoded"
-                },
-                data: {
-                    name: name,
-                    id: id,
-                    contact: contact,
-                    contactType: contactType,
-                    region: region,
-                    openid: app.openid
-                },
+        /*new Promise(function(resolve, reject) {
+            wx.login({
                 success: function(res) {
                     console.log(res)
                     if (res.data.code == -1) {
@@ -94,14 +79,17 @@ Page({
                     }
                 }
             })
-        }
-        catch (err) {
-            console.log(err)
-            wx.showToast({
-                icon: "none",
-                title: '出错！'
+        })*/
+        wx.setStorage({
+          key: 'verified',
+          data: 'true',
+          success: function () {
+            app.verified = true
+            that.setData({
+              verified: app.verified
             })
-        }
+          }
+        })
     },
     onShow: function() {
         this.setData({
