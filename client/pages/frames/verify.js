@@ -56,84 +56,52 @@ Page({
             })
             return
         }
-        new Promise(function(resolve, reject) {
-            wx.login({
+
+        try {
+            wx.request({
+                url: config.service.verifyUrl,
+                method: 'POST',
+                header: {
+                    "content-type": "application/x-www-form-urlencoded"
+                },
+                data: {
+                    name: name,
+                    id: id,
+                    contact: contact,
+                    contactType: contactType,
+                    region: region,
+                    openid: app.openid
+                },
                 success: function(res) {
-                    resolve(res)
-                }
-            })
-        }).then(function(res) {
-            return new Promise(function(resolve, reject) {
-                wx.request({
-                    url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx542ddffc5268f0be&secret=0bf54d6cec5a5055896ed03226190b44&js_code=' + res.code + '&grant_type=authorization_code',
-                    success: function(result) {
-                        resolve(result.data)
+                    console.log(res)
+                    if (res.data.code == -1) {
+                        wx.showToast({
+                            icon: "none",
+                            title: res.data.error
+                        })
                     }
-                })
-            })
-        }).then(function(data) {
-            return new Promise(function(resolve, reject) {
-                try {
-                    wx.request({
-                        url: config.service.verifyUrl,
-                        method: 'POST',
-                        header: {
-                            "content-type": "application/x-www-form-urlencoded"
-                        },
-                        data: {
-                            name: name,
-                            id: id,
-                            contact: contact,
-                            contactType: contactType,
-                            region: region,
-                            openid: data.openid
-                        },
-                        success: function(res) {
-                            console.log(res)
-                            if (res.data.code == -1) {
-                                wx.showToast({
-                                    icon: "none",
-                                    title: res.data.error
+                    else if (res.data.code == 0) {
+                        wx.showToast({
+                            icon: "none",
+                            title: res.data.data.msg,
+                            success: function() {
+                                app.verified = true
+                                that.setData({
+                                    verified: app.verified
                                 })
                             }
-                            else if (res.data.code == 0) {
-                                wx.showToast({
-                                    icon: "none",
-                                    title: res.data.data.msg,
-                                    success: function() {
-                                        app.verified = true
-                                        that.setData({
-                                            verified: app.verified
-                                        })
-                                    }
-                                })
-                            }
-                        }
-                    })
-                }
-                catch (err) {
-                    console.log(err)
-                    wx.showToast({
-                        icon: "none",
-                        title: '出错！'
-                    })
+                        })
+                    }
                 }
             })
-        })
-    },
-    test: function() {
-        wx.login({
-            success: function(res) {
-                if(res.code) {
-                    wx.request({
-                        url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx542ddffc5268f0be&secret=0bf54d6cec5a5055896ed03226190b44&js_code=' + res.code + '&grant_type=authorization_code',
-                        success: (res) => {
-                            console.log(res.data.openid)
-                        }
-                    })
-                }
-            }
-        })
+        }
+        catch (err) {
+            console.log(err)
+            wx.showToast({
+                icon: "none",
+                title: '出错！'
+            })
+        }
     },
     onShow: function() {
         this.setData({

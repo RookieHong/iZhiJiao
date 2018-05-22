@@ -1,0 +1,16 @@
+.box {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100rpx;
+    margin-bottom: 160rpx;
+    align-items: center;
+}
+.icon {
+    font-size: 120rpx;
+}
+.title {
+    font-family: '华文琥珀'
+}
+.content {
+    font-family: '华文黑体'
+}

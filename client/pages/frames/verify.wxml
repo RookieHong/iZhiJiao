@@ -37,7 +37,6 @@
     </view>
 
     <button class="weui-btn buttons" type="primary" bindtap="verify">实名认证</button>
-    <button class="weui-btn buttons" type="primary" bindtap="test">test</button>
 </view>
 
 <view wx:if="{{verified}}" class="icon-box center">

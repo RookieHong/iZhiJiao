@@ -1,0 +1,23 @@
+<view class='box'>
+    <text class="icon iconfont icon-weibo"></text>
+    <view>
+        <view class="title">微博</view>
+        <view class="content">EasonLin333</view>
+    </view>
+</view>
+
+<view class='box'>
+    <text class="icon iconfont icon-phone"></text>
+    <view>
+        <view class="title">手机</view>
+        <view class="content">EasonLin333</view>
+    </view>
+</view>
+
+<view class="box">
+    <text class="icon iconfont icon-weixin"></text>
+    <view>
+        <view class="title">微信</view>
+        <view class="content">EasonLin333</view>
+    </view>
+</view>

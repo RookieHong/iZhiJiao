@@ -5,7 +5,7 @@ Page({
     data: {
         verified: app.verified,
 
-        tabs: ["我参加的", "我关注的", "推荐"],
+        tabs: ["我参加的", "我管理的"],
         activeIndex: 1,
         sliderOffset: 0,
         sliderLeft: 0,

@@ -5,8 +5,10 @@
     "pages/frames/verify",
     "pages/frames/myProfile",
     "pages/frames/myProjects",
-    "pages/addCgi/addCgi",
-    "pages/frames/team"
+    "pages/frames/project",
+    "pages/frames/team",
+    "pages/frames/contactUs",
+    "pages/addCgi/addCgi"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

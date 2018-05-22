@@ -1,0 +1,19 @@
+.icon_box {
+    display: flex;
+}
+.title {
+    font-family: "华文琥珀";
+    font-size: 70rpx;
+}
+.subtitle {
+    font-family:"黑体",Charcoal;
+    font-size: 50rpx;
+}
+.content {
+    font-family: "华文楷体";
+    font-size: 35rpx;
+}
+.flexBox {
+    display: flex;
+    align-items: center;
+}

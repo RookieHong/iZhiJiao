@@ -32,7 +32,7 @@
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </view>
     </view>
-    <view class="weui-panel__ft">
+    <view class="weui-panel__ft" bindtap='openPage' data-url="contactUs">
         <view class="weui-cell weui-cell_access weui-cell_link">
             <view class="weui-cell__bd">联系我们</view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>

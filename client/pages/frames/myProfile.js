@@ -10,5 +10,10 @@ Page({
         this.setData({
             verified: app.verified
         })
+    },
+    openPage: function(options) {
+        wx.navigateTo({
+            url: options.currentTarget.dataset.url
+        })
     }
 })
