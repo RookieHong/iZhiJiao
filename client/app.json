@@ -8,6 +8,7 @@
     "pages/frames/project",
     "pages/frames/team",
     "pages/frames/contactUs",
+    "pages/frames/edit",
     "pages/addCgi/addCgi"
   ],
   "window": {

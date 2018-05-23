@@ -22,7 +22,11 @@
             </view>
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-            <view class="weui-panel__bd" wx:for="{{follow}}" wx:for-index="idx" wx:for-item="item" wx:key="url">
+            <navigator url="edit" class="weui-cell weui-cell_access" hover-class="weui-cell_active" style="background-color: #CCFFFF;">
+                <view class="weui-cell__bd">创建支教队或支教项目</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+            <view class="weui-panel__bd" wx:for="{{manage}}" wx:for-index="idx" wx:for-item="item" wx:key="url">
                 <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
                     <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                         <image class="weui-media-box__thumb" src="{{item.img}}" />

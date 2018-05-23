@@ -1,5 +1,5 @@
 <view class="page" style="background-color: #F0F0F0">
-    <view class="page__hd" style="margin-bottom: 60rpx;">
+    <view class="page__hd" style="margin-bottom: 60rpx; text-align: center;">
         <view class="page__title title">{{title}}</view>
     </view>
     <view class="flexBox">
@@ -13,7 +13,7 @@
                 <view class="content">{{location}}</view>
             </view>
         </view>
-        <button wx:if="{{verified}}" class="weui-btn" type="primary" plain="{{In ? true : false}}" style="margin-left: 260rpx;">{{In ? "已参加" : "参加"}}</button>
+        <button wx:if="{{verified}}" class="weui-btn" type="primary" plain="{{In ? true : false}}" style="margin-left: 260rpx;">{{In ? "已参加，待审核" : "参加"}}</button>
     </view>
     <view class="page_bd">
         <view class="weui-article">
