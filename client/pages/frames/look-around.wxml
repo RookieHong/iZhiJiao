@@ -30,7 +30,7 @@
 
 <view class="weui-panel__hd">支教地情况</view>
 <view class="weui-panel__bd" wx:for="{{places}}" wx:for-index="idx" wx:for-item="item" wx:key="title">
-    <view bindtap="openPlace" data-title="{{item.title}}" data-content="{{item.content}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+    <view bindtap="openPlace" data-title="{{item.title}}" data-content="{{item.content}}" data-date="{{item.date}}" data-profile="{{item.profile}}" data-img="{{item.img}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
         <view wx:if="{{item.img}}" class="weui-media-box__hd weui-media-box__hd_in-appmsg" >
             <image class="weui-media-box__thumb" src="{{item.img}}" />
         </view>

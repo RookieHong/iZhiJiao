@@ -45,7 +45,7 @@ Page({
     },
     openPlace: function (e) {
       wx.navigateTo({
-        url: 'place?' + 'title=' + e.currentTarget.dataset.title + '&content=' + e.currentTarget.dataset.content,
+          url: 'place?' + 'title=' + e.currentTarget.dataset.title + '&content=' + e.currentTarget.dataset.content +'&img=' +e.currentTarget.dataset.img+'&profile=' + e.currentTarget.dataset.profile + '&date='+e.currentTarget.dataset.date,
       })
     },
     openTeam: function(e) {
