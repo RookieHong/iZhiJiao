@@ -9,7 +9,7 @@
 </swiper>
 
 <view class='main'>
-    <view class='page_title'>~~~~~~~~~</view>
+    <view class='page_title' style="font-size: 70rpx;">欢迎来到i支教</view>
     <button class="weui-btn buttons" type="primary" bindtap="openLookAround">我就看看</button>
     <button class="weui-btn buttons" type="primary" bindtap="openVerify">实名认证</button>
 </view>

@@ -1,0 +1,71 @@
+<view class="page" style="background-color: #F0F0F0">
+    <view class="page__hd" style="margin-bottom: 60rpx; text-align: center;">
+        <view class="page__title title">{{title}}</view>
+    </view>
+    <view class="flexBox">
+        <view style="margin-left: 40rpx;">
+            <view class="icon_box">
+                <text class='iconfont icon-date'></text>
+                <view class="content">{{date}}</view>
+            </view>
+            <view class="icon_box">
+                <text class='iconfont icon-location'></text>
+                <view class="content">{{location}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="page_bd">
+        <view class="weui-article">
+            <view class="icon_box">
+                <text class='iconfont icon-dot'></text>
+                <view class="weui-article__h1 subtitle">支教地简介</view>
+            </view>
+            <view class="weui-article_section" class="content">{{content}}</view>
+        </view>
+        <view class="weui-article">
+            <view class="icon_box">
+                <text class='iconfont icon-dot'></text>
+                <view class="weui-article__h1 subtitle">联系方式</view>
+            </view>
+            <view class="weui-flex">
+                <view class="weui-flex__item">
+                    <view class="icon_box">
+                        <text class='iconfont icon-phone'></text>
+                        <view class="content">{{phone}}</view>
+                    </view>
+                </view>
+                <view class="weui-flex__item">
+                    <view class="icon_box">
+                        <text class='iconfont icon-email'></text>
+                        <view class="content">{{email}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-flex">
+                <view class="weui-flex__item">
+                    <view class="icon_box">
+                        <text class='iconfont icon-weibo'></text>
+                        <view class="content">{{weibo}}</view>
+                    </view>
+                </view>
+                <view class="weui-flex__item">
+                    <view class="icon_box">
+                        <text class='iconfont icon-weixin'></text>
+                        <view class="content">{{wechat}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-flex">
+                <view class="weui-flex__item">
+                    <view class="icon_box">
+                        <text class='iconfont icon-et-internet'></text>
+                        <view class="content">{{website}}</view>
+                    </view>
+                </view>
+                <view class="weui-flex__item">
+                    
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -9,6 +9,7 @@
     "pages/frames/team",
     "pages/frames/contactUs",
     "pages/frames/edit",
+    "pages/frames/place",
     "pages/addCgi/addCgi"
   ],
   "window": {
