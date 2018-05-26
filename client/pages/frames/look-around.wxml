@@ -17,7 +17,7 @@
 
 <view class="weui-panel__hd">公益项目</view>
 <view class="weui-panel__bd" wx:for="{{projects}}" wx:for-index="idx" wx:for-item="item" wx:key="title">
-    <view bindtap="openProject" data-title="{{item.title}}" data-website="{{item.website}}" data-phone="{{item.phone}}" data-goal="{{item.goal}}" data-profile="{{item.profile}}" data-content="{{item.content}}" data-date="{{item.date}}" data-location="{{item.location}}" data-email="{{item.email}}" data-weibo="{{item.weibo}}" data-weixin="{{item.weixin}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+    <view bindtap="openProject" data-index="{{idx}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
         <view wx:if="{{item.img}}" class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="{{item.img}}" />
         </view>
@@ -43,7 +43,7 @@
 
  <view class="weui-panel__hd">已入驻支教队</view>
 <view class="weui-panel__bd" wx:for="{{teams}}" wx:for-index="idx" wx:for-item="item" wx:key="title">
-    <view bindtap="openTeam" data-title="{{item.title}}" data-content="{{item.content}}" data-phone="{{item.phone}}" data-wechat="{{item.wechat}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+    <view bindtap="openTeam" data-index="{{idx}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
         <view wx:if="{{item.img}}" class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="{{item.img}}" />
         </view>

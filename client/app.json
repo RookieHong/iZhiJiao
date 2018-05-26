@@ -1,48 +1,49 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/frames/look-around",
-    "pages/frames/verify",
-    "pages/frames/myProfile",
-    "pages/frames/myProjects",
-    "pages/frames/project",
-    "pages/frames/team",
-    "pages/frames/contactUs",
-    "pages/frames/edit",
-    "pages/frames/place",
-    "pages/addCgi/addCgi"
-  ],
-  "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "Wafer Quick Start",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "color": "#dddddd",
-    "selectedColor": "#000000",
-    "borderStyle": "white",
-    "backgroundColor": "#ffffff",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "iconPath": "images/homepage.png",
-        "selectedIconPath": "images/homepage_fill.png",
-        "text": "广场"
-      },
-      {
-        "pagePath": "pages/frames/myProjects",
-        "iconPath": "images/activity.png",
-        "selectedIconPath": "images/activity_fill.png",
-        "text": "我的项目"
-      },
-      {
-        "pagePath": "pages/frames/myProfile",
-        "iconPath": "images/mine.png",
-        "selectedIconPath": "images/mine_fill.png",
-        "text": "我的主页"
-      }
-    ]
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/frames/look-around",
+        "pages/frames/verify",
+        "pages/frames/myProfile",
+        "pages/frames/myProjects",
+        "pages/frames/project",
+        "pages/frames/team",
+        "pages/frames/contactUs",
+        "pages/frames/edit",
+        "pages/frames/place",
+        "pages/addCgi/addCgi",
+        "pages/frames/modify"
+    ],
+    "window": {
+        "backgroundColor": "#F6F6F6",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#F6F6F6",
+        "navigationBarTitleText": "Wafer Quick Start",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#dddddd",
+        "selectedColor": "#000000",
+        "borderStyle": "white",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "images/homepage.png",
+                "selectedIconPath": "images/homepage_fill.png",
+                "text": "广场"
+            },
+            {
+                "pagePath": "pages/frames/myProjects",
+                "iconPath": "images/activity.png",
+                "selectedIconPath": "images/activity_fill.png",
+                "text": "我的项目"
+            },
+            {
+                "pagePath": "pages/frames/myProfile",
+                "iconPath": "images/mine.png",
+                "selectedIconPath": "images/mine_fill.png",
+                "text": "我的主页"
+            }
+        ]
+    }
 }

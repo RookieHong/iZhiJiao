@@ -9,33 +9,65 @@
     </view>
     <view class="weui-tab__panel">
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-            <view class="weui-panel__bd" wx:for="{{In}}" wx:for-index="idx" wx:for-item="item" wx:key="url">
-                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{item.img}}" />
-                    </view>
+            <view class="weui-panel__hd">公益项目</view>
+            <view class="weui-panel__bd" wx:for="{{inProjects}}" wx:for-index="idx" wx:for-item="item" wx:key="title">
+                <view bindtap="openProject" data-index="{{item}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view wx:if="{{projects[item].img}}" class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{projects[item].img}}" />
+                     </view>
                     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">{{item.title}}</view>
-                        <view class="weui-media-box__desc">{{item.content}}</view>
+                        <view class="weui-media-box__title">{{projects[item].title}}</view>
+                        <view class="weui-media-box__desc">{{projects[item].content}}</view>
                     </view>
-                </navigator>
+                </view>
+            </view>
+        
+        
+            <view class="weui-panel__hd">支教队</view>
+            <view class="weui-panel__bd" wx:for="{{inTeams}}" wx:for-index="idx" wx:for-item="item" wx:key="title">
+                <view bindtap="openTeam" data-index="{{item}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view wx:if="{{teams[item].img}}" class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{teams[item].img}}" />
+                    </view>
+                     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">{{teams[item].title}}</view>
+                        <view class="weui-media-box__desc">{{teams[item].content}}</view>
+                    </view>
+                </view>
             </view>
         </view>
+
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
             <navigator url="edit" class="weui-cell weui-cell_access" hover-class="weui-cell_active" style="background-color: #CCFFFF;">
                 <view class="weui-cell__bd">创建支教队或支教项目</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </navigator>
-            <view class="weui-panel__bd" wx:for="{{manage}}" wx:for-index="idx" wx:for-item="item" wx:key="url">
-                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{item.img}}" />
-                    </view>
+
+            <view class="weui-panel__hd">我管理的公益项目</view>
+            <view class="weui-panel__bd" wx:for="{{manageProjects}}" wx:for-index="idx" wx:for-item="item" wx:key="title">
+                <view bindtap="modifyProject" data-index="{{item}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view wx:if="{{projects[item].img}}" class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{projects[item].img}}" />
+                     </view>
                     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">{{item.title}}</view>
-                        <view class="weui-media-box__desc">{{item.content}}</view>
+                        <view class="weui-media-box__title">{{projects[item].title}}</view>
+                        <view class="weui-media-box__desc">{{projects[item].content}}</view>
                     </view>
-                </navigator>
+                </view>
+            </view>
+        
+        
+            <view class="weui-panel__hd">我管理的支教队</view>
+            <view class="weui-panel__bd" wx:for="{{manageTeams}}" wx:for-index="idx" wx:for-item="item" wx:key="title">
+                <view bindtap="modifyTeam" data-index="{{item}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view wx:if="{{teams[item].img}}" class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{teams[item].img}}" />
+                    </view>
+                     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">{{teams[item].title}}</view>
+                        <view class="weui-media-box__desc">{{teams[item].content}}</view>
+                    </view>
+                </view>
             </view>
         </view>
     </view>

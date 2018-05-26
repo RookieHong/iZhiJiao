@@ -13,7 +13,7 @@
                 <view class="content">{{location}}</view>
             </view>
         </view>
-        <button wx:if="{{verified}}" class="weui-btn" type="primary" plain="{{In ? true : false}}" style="margin-left: 260rpx;">{{In ? "已参加，待审核" : "参加"}}</button>
+        <button wx:if="{{verified}}" bindtap="inProject" class="weui-btn" type="primary" plain="{{In ? true : false}}" style="margin-left: 260rpx;">{{In ? "已参加，待审核" : "参加"}}</button>
     </view>
     <view class="page_bd">
         <view class="weui-article">

@@ -39,8 +39,9 @@ Page({
         })
     },
     openProject:function(e){
+        console.log(e.currentTarget.dataset)
       wx.navigateTo({
-        url: 'project?' + 'title=' + e.currentTarget.dataset.title + '&content=' + e.currentTarget.dataset.content + '&website=' + e.currentTarget.dataset.website + '&goal=' + e.currentTarget.dataset.goal + '&phone=' + e.currentTarget.dataset.phone + '&profile=' + e.currentTarget.dataset.profile + '&date=' + e.currentTarget.dataset.date+'&location='+e.currentTarget.dataset.location+'&email='+e.currentTarget.dataset.email+'&weibo='+e.currentTarget.dataset.weibo+'&weixin='+e.currentTarget.dataset.weixin,
+        url: 'project?' + 'index=' + e.currentTarget.dataset.index,
       })
     },
     openPlace: function (e) {
@@ -50,7 +51,7 @@ Page({
     },
     openTeam: function(e) {
       wx.navigateTo({
-        url: 'team?' + 'title=' + e.currentTarget.dataset.title + '&content=' + e.currentTarget.dataset.content + '&wechat=' + e.currentTarget.dataset.wechat + '&phone=' + e.currentTarget.dataset.phone
+          url: 'team?' + 'index=' + e.currentTarget.dataset.index,
       })
     },
     openSource: function (e) {
